@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alok Aenugu – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300 ;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#111827;
+      --accent:#0ea5e9;
+      --card:#f9fafb;
+      --border:#e5e7eb;
+      --code:#f3f4f6;
+    }
+    [data-theme="dark"]{
+      --bg:#111827;
+      --fg:#f9fafb;
+      --accent:#38bdf8;
+      --card:#1f2937;
+      --border:#374151;
+      --code:#1e293b;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif;}
+    body{background:var(--bg);color:var(--fg);line-height:1.6;scroll-behavior:smooth;}
+    a{color:var(--accent);text-decoration:none;}
+    #stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+    .container{max-width:1000px;margin:auto;padding:2.5rem 1.5rem;position:relative;z-index:1;}
+    header{display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem;margin-bottom:2.5rem;animation:fadeDown .8s both;}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+    .headshot{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);}
+    .name h1{font-size:2rem;font-weight:700;}
+    .name p{font-size:1rem;color:var(--accent);}
+    .contact{margin-left:auto;display:flex;gap:1.2rem;font-size:1.1rem;}
+    #themeToggle{background:none;border:2px solid var(--border);color:var(--fg);border-radius:50%;width:36px;height:36px;cursor:pointer;transition:.3s;}
+    #themeToggle:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+    .section{margin-bottom:3rem;opacity:0;transform:translateY(30px);transition:.6s;}
+    .section.visible{opacity:1;transform:translateY(0);}
+    .section h2{margin-bottom:.75rem;font-weight:600;font-size:1.25rem;border-bottom:2px solid var(--border);padding-bottom:.25rem;}
+    .grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:.3s;position:relative;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.08);}
+    .card h3{font-size:1.05rem;margin-bottom:.25rem;}
+    .card .meta{font-size:.8rem;opacity:.7;margin-bottom:.5rem;}
+    .card ul{margin-left:1.1rem;font-size:.85rem;}
+    .card li{margin:.2rem 0;}
+    .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.6rem;}
+    .tags span{background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;padding:.2rem .5rem;border-radius:4px;}
+    #skillsCode{background:var(--code);border-left:3px solid var(--accent);padding:.6rem .8rem;font-size:.8rem;border-radius:4px;font-family:monospace;white-space:pre-wrap;}
+    footer{text-align:center;font-size:.8rem;margin-top:3rem;opacity:.6;}
+
+    /* clickable project cards */
+    .card.clickable{cursor:pointer;}
+    .card.clickable::after{
+      content:'\f08e';              /* external-link icon */
+      font-family:'Font Awesome 6 Free';
+      font-weight:900;
+      position:absolute;
+      top:.6rem;
+      right:.6rem;
+      font-size:.75rem;
+      color:var(--accent);
+      opacity:.7;
+      transition:opacity .2s;
+    }
+    .card.clickable:hover::after{opacity:1;}
+  </style>
+</head>
+<body>
+  <canvas id="stars"></canvas>
+
+  <div class="container">
+    <header>
+      <img src="Alok_Aenugu_Picture.jpg" alt="Alok Aenugu" class="headshot">
+      <div class="name">
+        <h1>Alok Aenugu</h1>
+        <p>Computer Science + Cybersecurity + Mathematics @ NYU Tandon</p>
+      </div>
+      <div class="contact">
+        <a href="mailto:aenugualok@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:5166984363" title="Call"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://github.com/Alok-Dumet  " target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/alok-aenugu-979b8322b/  " target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <button id="themeToggle" title="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+      </div>
+    </header>
+
+    <section class="section" data-fade>
+      <h2>Education</h2>
+      <div class="card">
+        <h3>NYU Tandon School of Engineering</h3>
+        <div class="meta">Sep 2022 – Jun 2026</div>
+        <p>B.S. Computer Science, Minor in Cybersecurity & Mathematics</p>
+        <ul>
+          <li>Relevant coursework: Data Structures & Algorithms, Design/Analysis of Algorithms, Computer Security, Application Security, Computer Networking, Operating Systems, Computer Architecture, Databases, Applied Cryptography, Applied Internet Technology, Discrete Mathematics, Data Analysis</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" data-fade>
+      <h2>Experience</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Front-End Developer – Webatrice (Open-source)</h3>
+          <div class="meta">Jun 2024 – Present</div>
+          <ul>
+            <li>Contributed to an open-source platform for playing Magic: The Gathering online.</li>
+            <li>Developed responsive front-end features with Vue.js, improving usability across desktop and mobile.</li>
+            <li>Innovated in an Agile environment with distributed contributors, code reviews, and sprint planning.</li>
+          </ul>
+          <div class="tags"><span>Vue.js</span><span>TypeScript</span><span>Agile</span></div>
+        </div>
+        <div class="card">
+          <h3>AI Evaluator – Outlier</h3>
+          <div class="meta">May 2024 – Jul 2024</div>
+          <ul>
+            <li>Assessed and graded 100+ AI responses, providing feedback on performance and improvement areas.</li>
+            <li>Identified errors in over 80 % of flagged AI outputs, improving reliability.</li>
+            <li>Debugged 20+ instances of generated code, ensuring corrected and efficient solutions.</li>
+          </ul>
+          <div class="tags"><span>Python</span><span>Debugging</span><span>Code Review</span></div>
+        </div>
+        <div class="card">
+          <h3>AI Research Participant – Stanford & MIT Inspirit AI</h3>
+          <div class="meta">Oct 2021 – Feb 2022</div>
+          <ul>
+            <li>Collaborated with an international student team to study AI advancements.</li>
+            <li>Conducted research on AI applications in the music industry, analyzing trends and future potential.</li>
+            <li>Spearheaded a presentation on music-related AI software, receiving 85 % positive feedback.</li>
+          </ul>
+          <div class="tags"><span>Research</span><span>Public Speaking</span><span>AI Trends</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-fade>
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card clickable" onclick="window.open('https://github.com/Alok-Dumet/ParroTavern','_blank')">
+          <h3>D&D Social Media Platform</h3>
+          <div class="meta">Apr 2024 – Present</div>
+          <ul>
+            <li>Pioneered a social platform for D&D players to upload stories with dice and soundboards available.</li>
+            <li>Optimized state management and data fetching with React.js and TanStack Query.</li>
+            <li>Enhanced back-end reliability using Helmet security, Winston logging, and static asset caching.</li>
+            <li>Integrated telemetry pipelines to track usage and improve performance.</li>
+          </ul>
+          <div class="tags"><span>MongoDB</span><span>Express.js</span><span>React.js</span><span>Node.js</span><span>TanStack Query</span></div>
+        </div>
+        <div class="card clickable" onclick="window.open('https://github.com/NYU-CSE-Software-Engineering/cs-uy-4513-f25-team2','_blank')">
+          <h3>Tutoring Platform</h3>
+          <div class="meta">Sep 2025 – Dec 2025</div>
+          <ul>
+            <li>Led a 7-person team to develop a Ruby on Rails tutoring platform.</li>
+            <li>Built the application and approval features, creating Rails models, controllers, views, and RESTful routes.</li>
+            <li>Applied BDD and TDD with extensive automated testing, achieving over 90 % code coverage.</li>
+          </ul>
+          <div class="tags"><span>Ruby on Rails</span><span>BDD</span><span>TDD</span></div>
+        </div>
+        <div class="card clickable" onclick="window.open('https://github.com/Alok-Dumet/Bubble-Pop-Hand-Track-Game','_blank')">
+          <h3>Hand-Tracking Multiplayer Web Game</h3>
+          <div class="meta">Nov 2024 – Jan 2025</div>
+          <ul>
+            <li>Developed an interactive web-based game using hand-tracking technology.</li>
+            <li>Implemented multiplayer experience with hand gestures for gameplay.</li>
+            <li>Conducted play-testing with 60+ users, with 93 % reporting an engaging experience.</li>
+          </ul>
+          <div class="tags"><span>JavaScript</span></div>
+        </div>
+        <div class="card clickable" onclick="window.open('https://github.com/Alok-Dumet/Game-Programming-Projects','_blank')">
+          <h3>Original OpenGL Game Engine</h3>
+          <div class="meta">Sep 2024 – Jan 2025</div>
+          <ul>
+            <li>Built an original game engine with OpenGL API for rendering, physics, and input.</li>
+            <li>Re-imagined and modernized 3 classic games with enhanced visuals and mechanics.</li>
+            <li>Developed a dungeon crawler with custom AI and hand-crafted levels.</li>
+          </ul>
+          <div class="tags"><span>OpenGL</span><span>C++</span></div>
+        </div>
+        <div class="card">
+          <h3>Auto-Deploying Bicycle Training Wheels</h3>
+          <div class="meta">Jan 2023 – May 2023</div>
+          <ul>
+            <li>Collaborated on a project to develop auto-deploying training wheels for bicycles.</li>
+            <li>Utilized Raspberry Pi + gyroscope to deploy wheels when tilt exceeded 15 degrees.</li>
+            <li>Stayed 20 % under budget while ensuring functionality and delivering on time.</li>
+          </ul>
+          <div class="tags"><span>Raspberry Pi</span><span>Verilog</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-fade>
+      <h2>Technical Skills</h2>
+      <div id="skillsCode"></div>
+    </section>
+
+    <footer data-fade>Alok Aenugu – <span id="yr"></span></footer>
+  </div>
+
+  <script>
+    // starfield background
+    const c=document.getElementById('stars'),ctx=c.getContext('2d');
+    let w=c.width=innerWidth,h=c.height=innerHeight,stars=[];
+    for(let i=0;i<150;i++)stars.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5,s:Math.random()*.5});
+    function draw(){ctx.clearRect(0,0,w,h);stars.forEach(s=>{s.y+=s.s;if(s.y>h)s.y=0;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.8)';ctx.fill();});requestAnimationFrame(draw);}
+    draw();onresize=()=>{w=c.width=innerWidth;h=c.height=innerHeight;}
+
+    // theme toggle
+    const btn=document.getElementById('themeToggle'),html=document.documentElement;
+    const prefers=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    html.setAttribute('data-theme',localStorage.getItem('theme')||prefers);
+    btn.onclick=()=>{const cur=html.getAttribute('data-theme'),next=cur==='dark'?'light':'dark';html.setAttribute('data-theme',next);localStorage.setItem('theme',next);};
+
+    // scroll fade-in
+    const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.2});
+    document.querySelectorAll('[data-fade]').forEach(s=>io.observe(s));
+
+    // typing skills block
+    const skills=`Languages: Python, C/C++, Java, JavaScript, TypeScript, Ruby, SQL, Bash, Verilog, HTML, CSS
+Full-Stack Development: MongoDB, Express.js, React.js, Vue.js, Node.js, Ruby on Rails
+Developer Tools: Git, Linux, Visual Studio, VS Code, PyCharm, CLion, Wireshark, VMware, CMake`;
+    const pre=document.getElementById('skillsCode');let i=0;
+    function type(){if(i<skills.length){pre.textContent+=skills.charAt(i);i++;setTimeout(type,12);}}
+    setTimeout(type,600);
+
+    // year
+    document.getElementById('yr').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
