@@ -169,6 +169,16 @@
           </ul>
           <div class="tags"><span>JavaScript</span></div>
         </div>
+        <div class="card clickable" onclick="window.open('https://github.com/Alok-Dumet/AirplaneTicketSystem','_blank')">
+          <h3>Airline Reservation System</h3>
+          <div class="meta">Jan 2025 – May 2025</div>
+          <ul>
+            <li>Created a relational airline reservation system enforcing referential integrity across 10+ entities.</li>
+            <li>Implemented transactional workflows maintaining consistency across bookings, cancellations, and reviews.</li>
+            <li>Built dashboards for staff to monitor airport performance, revenue, and flight operations.</li>
+          </ul>
+          <div class="tags"><span>SQL</span><span>Express.js</span><span>Node.js</span></div>
+        </div>
         <div class="card clickable" onclick="window.open('https://github.com/Alok-Dumet/Game-Programming-Projects','_blank')">
           <h3>Original OpenGL Game Engine</h3>
           <div class="meta">Sep 2024 – Jan 2025</div>
@@ -219,9 +229,9 @@
     document.querySelectorAll('[data-fade]').forEach(s=>io.observe(s));
 
     // typing skills block
-    const skills=`Languages: Python, C/C++, Java, JavaScript, TypeScript, Ruby, SQL, Bash, Verilog, HTML, CSS
+    const skills=`Languages: Python, C/C++, Java, JavaScript, TypeScript, Ruby, SQL, Verilog, HTML, CSS
 Full-Stack Development: MongoDB, Express.js, React.js, Vue.js, Node.js, Ruby on Rails
-Developer Tools: Git, Linux, Visual Studio, VS Code, PyCharm, CLion, Wireshark, VMware, CMake`;
+Developer Tools: Git, Bash, PowerShell, VS Code, Docker, VMware, AWS`;
     const pre=document.getElementById('skillsCode');let i=0;
     function type(){if(i<skills.length){pre.textContent+=skills.charAt(i);i++;setTimeout(type,12);}}
     setTimeout(type,600);
@@ -230,4 +240,5 @@ Developer Tools: Git, Linux, Visual Studio, VS Code, PyCharm, CLion, Wireshark, 
     document.getElementById('yr').textContent=new Date().getFullYear();
   </script>
 </body>
+
 </html>
