@@ -90,12 +90,17 @@
     <section class="section" data-fade>
       <h2>Education</h2>
       <div class="card">
+        <h3>Georgia Institute of Technology</h3>
+        <div class="meta">Expected May 2028</div>
+        <p>Master of Science in Computer Science</p>
+      </div>
+      <div class="card" style="margin-top:1.2rem;">
         <h3>NYU Tandon School of Engineering</h3>
-        <div class="meta">Expected May 2026</div>
+        <div class="meta">May 2022 – May 2026</div>
         <p>Bachelor of Science in Computer Science</p>
         <p>Minors in Cybersecurity, Mathematics</p>
         <ul>
-          <li>Cumulative GPA: 3.83/4.0</li>
+          <li>Cumulative GPA: 3.85/4.0</li>
           <li>Relevant coursework: Data Structures, Algorithms, Databases, Software Engineering, Operating Systems, Computer Networking, Full-Stack Web Development, Object-Oriented Programming, Application Security, Computer Security, Network Security, Applied Cryptography, Digital Logic, Machine Learning, Quantum Science, Creative Coding, Game Programming</li>
         </ul>
       </div>
@@ -242,8 +247,10 @@
 
     // typing skills block
     const skills=`Languages: Python, C/C++, Java, JavaScript, TypeScript, Ruby, SQL, Verilog, HTML5, CSS3
-Full-Stack Development: MongoDB, Express.js, React.js, Vue.js, Node.js, Next.js, Ruby on Rails, Tailwind
-Developer Tools: Git, Bash, PowerShell, VS Code, Docker, VMware, AWS, Wireshark, Supabase, Figma`;
+Frameworks & Libraries: React.js, Vue.js, Next.js, Express.js, NestJS, Node.js, Ruby on Rails, Tailwind, MUI, TanStack Query, Zod
+Databases: DynamoDB, MongoDB, Redis, MySQL, PostgreSQL
+Cloud, DevOps & Infrastructure: AWS, Docker, Kubernetes, Apache Kafka, Terraform, GitHub Actions
+Developer Tools: Git, Bash, PowerShell, VS Code, Wireshark, Supabase, Figma`;
     const pre=document.getElementById('skillsCode');let i=0;
     function type(){if(i<skills.length){pre.textContent+=skills.charAt(i);i++;setTimeout(type,12);}}
     setTimeout(type,600);
