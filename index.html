@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Alok Aenugu – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300 ;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root{
       --bg:#ffffff;
@@ -36,8 +36,7 @@
     .contact{margin-left:auto;display:flex;gap:1.2rem;font-size:1.1rem;}
     #themeToggle{background:none;border:2px solid var(--border);color:var(--fg);border-radius:50%;width:36px;height:36px;cursor:pointer;transition:.3s;}
     #themeToggle:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
-    .section{margin-bottom:3rem;opacity:0;transform:translateY(30px);transition:.6s;}
-    .section.visible{opacity:1;transform:translateY(0);}
+    .section{margin-bottom:3rem;}
     .section h2{margin-bottom:.75rem;font-weight:600;font-size:1.25rem;border-bottom:2px solid var(--border);padding-bottom:.25rem;}
     .grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
     .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:.3s;position:relative;}
@@ -54,7 +53,7 @@
     /* clickable project cards */
     .card.clickable{cursor:pointer;}
     .card.clickable::after{
-      content:'\f08e';              /* external-link icon */
+      content:'\f08e';
       font-family:'Font Awesome 6 Free';
       font-weight:900;
       position:absolute;
@@ -81,13 +80,13 @@
       <div class="contact">
         <a href="mailto:aenugualok@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
         <a href="tel:5166984363" title="Call"><i class="fa-solid fa-phone"></i></a>
-        <a href="https://github.com/Alok-Dumet  " target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://linkedin.com/in/alok-aenugu-979b8322b/  " target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/Alok-Dumet" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/alok-aenugu-979b8322b/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         <button id="themeToggle" title="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
       </div>
     </header>
 
-    <section class="section" data-fade>
+    <section class="section">
       <h2>Education</h2>
       <div class="card">
         <h3>Georgia Institute of Technology</h3>
@@ -106,7 +105,7 @@
       </div>
     </section>
 
-    <section class="section" data-fade>
+    <section class="section">
       <h2>Experience</h2>
       <div class="grid">
         <div class="card">
@@ -142,7 +141,7 @@
       </div>
     </section>
 
-    <section class="section" data-fade>
+    <section class="section">
       <h2>Projects</h2>
       <div class="grid">
         <div class="card clickable" onclick="window.open('https://github.com/Alok-Dumet/FeedForward','_blank')">
@@ -219,12 +218,12 @@
       </div>
     </section>
 
-    <section class="section" data-fade>
+    <section class="section">
       <h2>Technical Skills</h2>
       <div id="skillsCode"></div>
     </section>
 
-    <footer data-fade>Alok Aenugu – <span id="yr"></span></footer>
+    <footer>Alok Aenugu – <span id="yr"></span></footer>
   </div>
 
   <script>
@@ -241,10 +240,6 @@
     html.setAttribute('data-theme',localStorage.getItem('theme')||prefers);
     btn.onclick=()=>{const cur=html.getAttribute('data-theme'),next=cur==='dark'?'light':'dark';html.setAttribute('data-theme',next);localStorage.setItem('theme',next);};
 
-    // scroll fade-in
-    const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.08, rootMargin:'0px 0px -6% 0px'});
-    document.querySelectorAll('[data-fade]').forEach(s=>io.observe(s));
-
     // typing skills block
     const skills=`Languages: Python, C/C++, Java, JavaScript, TypeScript, Ruby, SQL, Verilog, HTML5, CSS3
 Frameworks & Libraries: React.js, Vue.js, Next.js, Express.js, NestJS, Node.js, Ruby on Rails, Tailwind, MUI, TanStack Query, Zod
@@ -259,5 +254,4 @@ Developer Tools: Git, Bash, PowerShell, VS Code, Wireshark, Supabase, Figma`;
     document.getElementById('yr').textContent=new Date().getFullYear();
   </script>
 </body>
-
 </html>
